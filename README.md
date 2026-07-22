@@ -1,30 +1,44 @@
-# Paquete de revisión del Capítulo 4
+# Modelado dinámico y optimización paramétrica de pautas de dosificación de antibióticos
 
-## Contenido
-- `04_desarrollo_contribucion_corregido.tex`: capítulo revisado.
-- `simulaciones_tfm_revisadas.py`: código reproducible.
-- `figuras/`: nueve figuras generadas automáticamente.
-- `datos/`: CSV de escenarios, barridos, Pareto, sensibilidad y umbrales.
-- `requirements.txt`: dependencias.
+Material computacional asociado al Trabajo Fin de Máster de
+Martha Ximena Dávalos Villegas, desarrollado en el Máster en
+Ingeniería Matemática y Computación de la Universidad Internacional
+de La Rioja.
 
-## Ejecución
+## Descripción
+
+El repositorio contiene la implementación de un modelo dinámico
+within-host para estudiar la evolución de bacterias sensibles y
+resistentes bajo diferentes pautas de dosificación de antibióticos.
+
+El modelo incorpora:
+
+- crecimiento logístico y competencia bacteriana;
+- efecto farmacodinámico de tipo Hill;
+- eliminación farmacocinética de primer orden;
+- pautas periódicas de infusión;
+- optimización mediante evolución diferencial;
+- barridos paramétricos;
+- aproximación discreta de soluciones no dominadas;
+- análisis estacionario;
+- análisis de sensibilidad local.
+
+## Estructura
+
+- `simulaciones_tfm_revisadas.py`: código principal.
+- `requirements.txt`: dependencias de Python.
+- `datos/`: resultados numéricos en formato CSV.
+- `figuras/`: figuras generadas por el código.
+
+## Requisitos
+
+- Python 3
+- NumPy
+- pandas
+- Matplotlib
+- SciPy
+
+Las dependencias pueden instalarse mediante:
+
 ```bash
 python -m pip install -r requirements.txt
-python simulaciones_tfm_revisadas.py
-```
-
-## Pauta optimizada reproducida
-- q = 6.22677670
-- tau = 1.74999886
-- delta = 0.41297911
-- J = 0.01516948
-- evaluaciones = 1084
-
-El optimizador alcanzó el número máximo de iteraciones; por eso se reporta como la mejor solución encontrada, no como una demostración del mínimo global exacto.
-
-## Hallazgos críticos
-1. La dosis se calcula exactamente a partir de las ventanas de infusión.
-2. La normalización original hace que el término resistente de J sea numéricamente pequeño.
-3. El umbral resistente bajo entrada constante es q_R = 29.2404, fuera del dominio q <= 12.
-4. El análisis de Pareto usa una malla sistemática de 918 pautas.
-5. Debe añadirse el enlace real al repositorio antes de entregar la memoria.
