@@ -1,2 +1,0 @@
-optimized_q,optimized_tau,optimized_delta,optimizer_fun,optimizer_nfev,optimizer_success,optimizer_message,execution_seconds,q_selection,q_susceptible_zero,q_resistant_zero
-6.226776700482475,1.7499988582104515,0.41297910794883524,0.015169482711835741,1084,False,Maximum number of iterations has been exceeded.,27.792717334999907,0.8019307504930222,2.038098661460272,29.24038303442689
